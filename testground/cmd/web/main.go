@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
-	// "github.com/iamhi/hi-zone-go/dbclient"
+	"github.com/iamhi/hi-zone-go/dbclient"
 	"github.com/iamhi/hi-zone-go/service"
 )
 
@@ -14,5 +14,5 @@ func Router(gin_engine *gin.Engine) {
 
 func main() {
 	service.StartService(Router)
-	// database.ConnectDB()
+	database.ConnectDB("root", "password", "http://localhost:5432", "hi-zone-go-testground")
 }
