@@ -20,7 +20,8 @@ func ConnectDB(
 	config, err := pgxpool.ParseConfig(dsn)
 
 	if err != nil {
-		fmt.Errorf("Unable to parse database URL: %v", err)
+		fmt.Printf("Unable to parse database URL: %v", err)
+		return
 	}
 
 	config.MaxConns = 10
@@ -31,6 +32,7 @@ func ConnectDB(
 
 	if err != nil {
 		fmt.Errorf("Unable to connect to the database: %v", err)
+		return
 	}
 
 	DB = pool
